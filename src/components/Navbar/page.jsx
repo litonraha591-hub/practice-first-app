@@ -1,69 +1,67 @@
+"use client";
+import styles from "./page.module.css";
+import Link from "next/link";
+import React from "react";
 
-"use client"
-import Link from 'next/link'
-import React from 'react'
-
-const links =[
+const links = [
   {
-    id:1,
+    id: 1,
     title: "Home",
     url: "/",
   },
 
   {
-    id:2,
+    id: 2,
     title: "Portfolio",
     url: "/portfolio",
   },
-   {
-    id:3,
+  {
+    id: 3,
     title: "Blog",
     url: "/blog",
   },
 
   {
-    id:4,
+    id: 4,
     title: "About",
     url: "/about",
   },
-    {
-    id:5,
+  {
+    id: 5,
     title: "Contact",
     url: "/contact",
   },
-   {
-    id:6,
+  {
+    id: 6,
     title: "Dashboard",
     url: "/dashboard",
   },
-
-]
+];
 
 const Navbar = () => {
   return (
-    <div>
-   <Link href="/">lamamia</Link>
-   {
-links.map((link)=>
-<Link key={link.id} href={link.url}>{link.title}</Link>
-)
+    <div className={styles.container}>
+      <Link href="/" className={styles.logo}>
+        lamamia
+      </Link>
+      <div className={styles.links}>
 
-   }
-     <button  onClick={()=>
-     {console.log("Logged out")}
-
-     }>Logout</button>
-   <div>
-
-
-
-
-   </div>
-
-
-
+      {links.map((link) => (
+        <Link key={link.id} href={link.url} className={styles.link}>
+          {link.title}
+        </Link>
+      ))}
+      <button className={styles.logout}
+        onClick={() => {
+          console.log("Logged out");
+        }}
+        >
+        Logout
+      </button>
+        </div>
+     
     </div>
-  )
-}
+  );
+};
 
-export default Navbar
+export default Navbar;
